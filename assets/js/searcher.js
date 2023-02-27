@@ -95,7 +95,12 @@ let loadProducts = ( myURL, URL_XML, product ) => {
 
 let filterItem = (product) => {
     let element = document.getElementById("filter");
-
+    let inputTxt = document.getElementById("text")
+    inputTxt.addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.code == "Enter")
+          element.click();
+  });
     element.addEventListener('click', (event) => {
         //Código a ejecutar
         console.log(product)
@@ -135,7 +140,7 @@ let filterItem = (product) => {
                 }   
             }
             else {
-                message = "<h5>No se encontró</h5>"
+                message = `<h5 class="text-center col-xl-12 col-md-6 mb-xl-0 mb-4 mt-4">No se encontró ninguna coincidencia</h5>`
             }
             products.innerHTML += message
         }
