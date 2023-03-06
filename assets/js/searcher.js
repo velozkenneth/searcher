@@ -107,7 +107,7 @@ let filterItem = (URL_JSON, URL_XML,product) => {
         console.log(product)
         let item = document.getElementById("text").value
         let products = document.getElementById("products") 
-        console.log(item)
+        //console.log(item)
         if (item.length > 0){  
             let message = ""
             products.innerHTML = message  //Vacío el listado          
