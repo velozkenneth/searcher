@@ -80,6 +80,7 @@ let loadProducts = ( myURL, URL_XML, product ) => {
             </div>
           </div>
         </div>`
+        product.push({name: name, src :src, price : price, type: type})
         }
         products.innerHTML += message
       })
@@ -93,7 +94,7 @@ let loadProducts = ( myURL, URL_XML, product ) => {
 
   };
 
-let filterItem = (product) => {
+let filterItem = (URL_JSON, URL_XML,product) => {
     let element = document.getElementById("filter");
     let inputTxt = document.getElementById("text")
     inputTxt.addEventListener("keyup", function(event) {
@@ -110,7 +111,7 @@ let filterItem = (product) => {
         if (item.length > 0){  
             let message = ""
             products.innerHTML = message  //Vacío el listado          
-            let productFiltered = product.filter(ele => (ele.type === item || ele.name === item))
+            let productFiltered = product.filter(ele => (ele.type.includes(item) || ele.name.includes(item)))
             console.log(productFiltered)
             if (productFiltered.length >0){
                 for (let p of productFiltered){
@@ -146,10 +147,12 @@ let filterItem = (product) => {
         }
         else {
             products.innerHTML = ""
-            loadProducts(URL_JSON, URL_XML,new Array());
+            let product = new Array()
+            loadProducts(URL_JSON, URL_XML,product);
+            console.log(product)
         }
     });
 }
 
 loadProducts(URL_JSON, URL_XML,product);
-filterItem(product)
+filterItem(URL_JSON, URL_XML,product)
