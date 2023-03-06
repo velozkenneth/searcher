@@ -1,5 +1,5 @@
-let URL_JSON = 'https://raw.githubusercontent.com/Bootcamp-Espol/FSD02/main/S03D03/clase/recursos/products.json'
-let URL_XML = 'https://raw.githubusercontent.com/Bootcamp-Espol/FSD02/main/S03D03/clase/recursos/products.xml'
+let URL_JSON = 'https://raw.githubusercontent.com/Bootcamp-Espol/Datos/main/products.json'
+let URL_XML = 'https://raw.githubusercontent.com/Bootcamp-Espol/Datos/main/products.xml'
 let product = new Array()
 
 let loadProducts = ( myURL, URL_XML, product ) => {
